@@ -10,6 +10,40 @@
     >
   </div>
   <h1> <%= isSelf ? `Hello, ${profile.name}!` : `${profile.name}'s Profile` %></h1>
+  <% if (profile.destinations.length) { %>
+    <h1><%= isSelf ? 'You have visited:' : `${profile.name} has visited:` %> </h1>
+    <h3>!!!!!! ADD THE DESTINATIONS HERE !!!!!</h3>
+  <% } else { %>
+    <h1><%= isSelf ? 'You have not saved any visited destinations' : `${profile.name} has not save any visited destinations` %> </h1>
+  <% } %>
+  <% if (isSelf) { %>
+    <h1>Bucket List Destinations</h1>
+    <form action="/profiles/<%= profile._id %>/bucket-list-destinations" method="POST">
+      <label>
+        Location: 
+        <input type="text" name="location" autocomplete="off">
+      </label>
+      <label>
+        Information: 
+        <textarea name="info"></textarea>
+      </label>
+      <label>
+        What year would you like to travel here? 
+        <input type="number" name="year" autocomplete="off">
+      </label>
+      <button type="submit">Add Bucket List Destination</button>
+    </form>
+  <% } %>
+  <% if (profile.bucketListDestinations.length) { %>
+    <% profile.bucketListDestinations.forEach(destination => { %>
+      <h3>Location: <%= destination.location %> </h3>
+      <h3>Information: <%= destination.info %> </h3>
+      <h3>Year: <%= destination.year %> </h3>
+    <% }) %>
+  <% } else { %>
+    <p>You have no bucket list destinations saved</p>
+  <% } %> 
+    
 </main>
 
 <%- include('../partials/footer') %>

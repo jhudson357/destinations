@@ -31,7 +31,28 @@ function show(req, res) {
   })
 }
 
+function createBucketListDestination(req, res) {
+  console.log('createBucketListdestination')
+  Profile.findById(req.params.id)
+  .then(profile => {
+    profile.bucketListDestinations.push(req.body)
+    profile.save()
+    .then(() => {
+      res.redirect(`/profiles/${profile._id}`)
+    })
+    .catch(err => {
+      console.log(err, 'ERROR')
+      res.redirect(`/profiles/${profile._id}`)
+    })
+  })
+  .catch(err => {
+    console.log(err, 'ERROR')
+    res.redirect(`/profiles/${profile._id}`)
+  })
+}
+
 export {
   index,
   show,
+  createBucketListDestination,
 }
