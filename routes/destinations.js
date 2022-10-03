@@ -19,6 +19,9 @@ router.post('/', destinationsCtrl.create)
 // POST - /destinations/:id
 router.post('/:id/reviews', isLoggedIn, destinationsCtrl.createReview)
 
+// DELETE - /destinationId/reviews/:reviewId
+router.delete('/:destinationId/reviews/:reviewId', destinationsCtrl.deleteReview)
+
 export {
   router
 }

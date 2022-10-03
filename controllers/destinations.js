@@ -54,18 +54,36 @@ function show(req, res) {
 // }
 
 function createReview(req, res) {
-  console.log(req.params.id, 'destinationID')
-  console.log(req.body, 'req.body')
-  console.log(req.body.rating, 'req.body.rating')
-  console.log(req.user, 'req.user')
-  console.log(req.user.profile.name, 'req.user.profile.name')
+  // console.log(req.params.id, 'destinationID')
+  // console.log(req.body, 'req.body')
+  // console.log(req.body.rating, 'req.body.rating')
+  // console.log(req.user, 'req.user')
+  // console.log(req.user.profile.name, 'req.user.profile.name')
   req.body.author = req.user.profile.name
-  console.log(req.body.author, 'req.body.author')
   req.body.recommend = !!req.body.recommend   // checkbox massaging
   Destination.findById(req.params.id)
-  // .populate('author')
   .then(destination => {
     destination.reviews.push(req.body)
+    destination.save()
+    .then(() => {
+      res.redirect(`/destinations/${destination._id}`)
+    })
+    .catch(err => {
+      console.log(err, 'ERROR')
+      res.redirect('/destinations')
+    })
+  })
+  .catch(err => {
+    console.log(err, 'ERROR')
+    res.redirect('/destinations')
+  })
+}
+
+function deleteReview(req, res){
+  console.log('deleteReview function working')
+  Destination.findById(req.params.destinationId)
+  .then(destination => {
+    destination.reviews.remove({_id: req.params.reviewId})
     destination.save()
     .then(() => {
       res.redirect(`/destinations/${destination._id}`)
@@ -88,4 +106,5 @@ export {
   show,
   // newReviewForm,
   createReview,
+  deleteReview,
 }
