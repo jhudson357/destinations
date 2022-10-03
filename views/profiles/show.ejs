@@ -36,9 +36,21 @@
   <% } %>
   <% if (profile.bucketListDestinations.length) { %>
     <% profile.bucketListDestinations.forEach(destination => { %>
-      <h3>Location: <%= destination.location %> </h3>
-      <h3>Information: <%= destination.info %> </h3>
-      <h3>Year: <%= destination.year %> </h3>
+      <h3>
+        Location: <%= destination.location %>
+        Information: <%= destination.info %>
+        Year: <%= destination.year %> 
+        <% if (isSelf) { %>
+          <form
+            action="/profiles/bucket-list-destinations/<%= destination._id %>?_method=DELETE"
+            method="POST"
+            style="display: inline-block"
+          >
+            <button type="submit">Delete</button>
+          </form>
+        <% } %>
+      </h3>
+
     <% }) %>
   <% } else { %>
     <p>You have no bucket list destinations saved</p>

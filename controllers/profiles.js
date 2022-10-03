@@ -51,8 +51,25 @@ function createBucketListDestination(req, res) {
   })
 }
 
+function deleteBucketListDestination(req, res) {
+  console.log('deleteBucketListDestination')
+  Profile.findById(req.user.profile._id)
+  .then(profile => {
+    profile.bucketListDestinations.remove({_id: req.params.id})
+    profile.save()
+    .then(() => {
+      res.redirect(`/profiles/${req.user.profile._id}`)
+    })
+  })
+  .catch(err => {
+    console.log(err, 'ERROR')
+    res.redirect(`/profiles/${req.user.profile._id}`)
+  })
+}
+
 export {
   index,
   show,
   createBucketListDestination,
+  deleteBucketListDestination,
 }
