@@ -114,6 +114,29 @@ function deleteReview(req, res){
 function readReview(req, res) {
   // .populate('reviews')
   console.log('read review function is running')
+  console.log(req.params.destinationId, 'req.params.destinationId')
+  console.log(req.params.reviewId, 'req.params.reviewId')
+  console.log(req.params, 'req.params')
+  Destination.findById(req.params.destinationId)
+  .populate({
+    path: 'reviews',
+    populate: {
+      path: 'author'
+    }
+  })
+  .then(destination => {
+    const review = destination.reviews.id(req.params.reviewId)
+    console.log(review, 'REVIEW')
+
+    res.render('reviews/show', {
+      title: 'Review',
+      destination, 
+      review
+    })
+    
+  })
+  // Destination.findById(req.params.id)
+  // console.log(req.params.reviewsId, 'reviewsId')
 }
 
 export {

@@ -1,0 +1,19 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<h1><%= `${destination.city}, ${destination.country}` %> </h1>
+<h2><%= review.title %> </h2>
+<h3><%= `By: ${review.author.name}` %> </h3>
+<h3><%= `Visited: ${review.dateVisited}` %> </h3>
+<p><%= `Rating (1-5): ${review.rating}` %> <p>
+<p><%= `Recommend: ${review.recommend ? 'Yes' : 'No'}` %> <p>
+<p><%= `Review: ${review.review}` %> <p>
+
+<a href="/destinations/<%= destination._id %> ">
+  <button>All Reviews</button>
+</a>
+
+
+
+
+<%- include('../partials/footer') %>
