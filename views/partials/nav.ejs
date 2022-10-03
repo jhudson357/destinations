@@ -10,6 +10,12 @@
 		>
 			DESTINATION REVIEWS
 		</a>
+    <a 
+			href="/profiles"
+			<%- title === 'Profiles' ? 'class="active"' : '' %>
+		>
+			PROFILES
+		</a>
     
     <% if (user) { %>
       <a href="/auth/logout" class="right">
