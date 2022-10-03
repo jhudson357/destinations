@@ -1,6 +1,23 @@
 <%- include('../partials/html-head') %>
 <%- include('../partials/nav') %>
 
-<h1><%= title %> </h1>
+<section>
+  <h1><%= title %> </h1>
+  <% if (user) { %>
+    <a href="/destinations/new">
+      <button type="submit">Add a Destination</button>
+    </a>
+  <% } %>
+  <ul>
+    <% destinations.forEach(destination => { %>
+      <li> 
+        <a href="/destinations/<%= destination._id %>">
+          <h3><%= destination.city %></h3>
+          <h4><%= destination.country %></h4>
+        </a>
+      </li>
+    <% }) %>
+  </ul>
+</section>
 
 <%- include('../partials/footer') %>
