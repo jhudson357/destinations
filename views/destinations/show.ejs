@@ -41,9 +41,11 @@
       <h3>By <%= review.author %>  </h3>
       <p>Rating: <%= review.rating %> </p>
       <p>Recommend: <%= review.recommend ? 'Yes' : 'No' %> </p>
-      <form action="/destinations/<%= destination._id %>/reviews/<%= review._id %>?_method=DELETE" method="POST">
-        <button type="submit">DELETE</button>
-      </form>
+      <% if (user) { %>
+        <form action="/destinations/<%= destination._id %>/reviews/<%= review._id %>?_method=DELETE" method="POST">
+          <button type="submit">DELETE</button>
+        </form>
+      <% } %>
     <% }) %>
   <% } else { %>
     <h2>No Reviews Yet</h2>

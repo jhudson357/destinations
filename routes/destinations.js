@@ -20,7 +20,7 @@ router.post('/', destinationsCtrl.create)
 router.post('/:id/reviews', isLoggedIn, destinationsCtrl.createReview)
 
 // DELETE - /destinationId/reviews/:reviewId
-router.delete('/:destinationId/reviews/:reviewId', destinationsCtrl.deleteReview)
+router.delete('/:destinationId/reviews/:reviewId', isLoggedIn, destinationsCtrl.deleteReview)
 
 export {
   router
