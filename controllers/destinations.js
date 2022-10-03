@@ -1,4 +1,5 @@
 import { Destination } from "../models/destination.js"
+import { Profile } from "../models/profile.js"
 
 function index(req, res) {
   Destination.find({})
@@ -54,12 +55,15 @@ function show(req, res) {
 // }
 
 function createReview(req, res) {
-  // console.log(req.params.id, 'destinationID')
-  // console.log(req.body, 'req.body')
-  // console.log(req.body.rating, 'req.body.rating')
-  // console.log(req.user, 'req.user')
-  // console.log(req.user.profile.name, 'req.user.profile.name')
-  req.body.author = req.user.profile.name
+  console.log(req.params.id, 'destinationID')
+  console.log(req.body, 'req.body')
+  console.log(req.body.rating, 'req.body.rating')
+  console.log(req.user, 'req.user')
+
+  console.log(req.user.profile.name, 'req.user.profile.name')
+  //req.body.author = req.user.profile.name     // THIS WONT WORK - NEED TO REFERENCE USER ID AND THEN POPULATE THE NAME
+
+  req.body.author = req.user.profile._id
   req.body.recommend = !!req.body.recommend   // checkbox massaging
   Destination.findById(req.params.id)
   .then(destination => {
@@ -99,6 +103,11 @@ function deleteReview(req, res){
   })
 }
 
+function readReview(req, res) {
+  // .populate('reviews')
+  console.log('read review function is running')
+}
+
 export {
   index,
   newDestination as new,
@@ -107,4 +116,5 @@ export {
   // newReviewForm,
   createReview,
   deleteReview,
+  readReview,
 }

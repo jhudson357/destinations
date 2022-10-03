@@ -8,8 +8,8 @@ const reviewSchema = new Schema({
   recommend: Boolean,
   title: String,
   review: String,
-  // author: {type: Schema.Types.ObjectId, ref: 'Profile'},
-  author: String,
+  author: {type: Schema.Types.ObjectId, ref: 'Profile'},
+  // author: String,
 }, {
   timeStamps: true,
 })

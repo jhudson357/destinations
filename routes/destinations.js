@@ -11,6 +11,9 @@ router.get('/new', isLoggedIn, destinationsCtrl.new)
 // GET - /destinations/:id
 router.get('/:id', destinationsCtrl.show)
 
+// GET - /destinations/:destinationId/reviews/:reviewId
+router.get('/:destinationId/reviews/:reviewId', destinationsCtrl.readReview)
+
 // GET - /destinations/:id/new
 // router.get('/:id/new', isLoggedIn, destinationsCtrl.newReviewForm)
 
