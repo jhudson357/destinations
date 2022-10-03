@@ -1,0 +1,18 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<section>
+  <h1><%= title %> </h1>
+  <% if (destination.reviews.length) { %>
+    <% if (user) { %>
+      <a href="/destinations/<%= destination._id %>/reviews/new">
+        <button type="submit">Write a Review</button>
+      </a>
+    <% } %>
+
+  <% } else { %>
+    <h2>No Reviews Yet</h2>
+  <% } %> 
+</section>
+
+<%- include('../partials/footer') %>

@@ -8,6 +8,8 @@ const router = Router()
 router.get('/', destinationsCtrl.index)
 // GET - /destinations/new
 router.get('/new', isLoggedIn, destinationsCtrl.new)
+// GET - /destinations/:id
+router.get('/:id', destinationsCtrl.show)
 // POST - /destinations
 router.post('/', destinationsCtrl.create)
 

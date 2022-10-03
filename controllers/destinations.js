@@ -22,10 +22,24 @@ function newDestination(req, res) {
 }
 
 function create(req, res) {
-  console.log('create function is working')
   Destination.create(req.body)
   .then(destination => {
     res.redirect(`/destinations`)
+  })
+  .catch(err => {
+    console.log(err, 'ERROR')
+    res.redirect('/destinations')
+  })
+}
+
+function show(req, res) {
+  console.log('show function running')
+  Destination.findById(req.params.id)
+  .then(destination => {
+    res.render('destinations/show', {
+      destination,
+      title: `${destination.city}, ${destination.country} Reviews`
+    })
   })
   .catch(err => {
     console.log(err, 'ERROR')
@@ -37,4 +51,5 @@ export {
   index,
   newDestination as new,
   create,
+  show,
 }

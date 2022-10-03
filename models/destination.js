@@ -6,6 +6,7 @@ const reviewSchema = new Schema({
   dateVisited: Date,
   rating: Number,
   recommend: Boolean,
+  title: String,
   review: String,
   author: {type: Schema.Types.ObjectId, ref: 'Profile'},
 }, {
