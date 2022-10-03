@@ -15,7 +15,6 @@ function index(req, res) {
 }
 
 function newDestination(req, res) {
-  console.log('new destination is running')
   res.render('destinations/new', {
     title: "Add a Destination That You've Visited"
   })
@@ -47,9 +46,46 @@ function show(req, res) {
   })
 }
 
+// function newReviewForm(req, res) {
+//   console.log(req.body, 'req.body')
+//   res.render('destinations/newReview', {
+//     title: `Write a Review`
+//   })
+// }
+
+function createReview(req, res) {
+  console.log(req.params.id, 'destinationID')
+  console.log(req.body, 'req.body')
+  console.log(req.body.rating, 'req.body.rating')
+  console.log(req.user, 'req.user')
+  console.log(req.user.profile.name, 'req.user.profile.name')
+  req.body.author = req.user.profile.name
+  console.log(req.body.author, 'req.body.author')
+  req.body.recommend = !!req.body.recommend   // checkbox massaging
+  Destination.findById(req.params.id)
+  // .populate('author')
+  .then(destination => {
+    destination.reviews.push(req.body)
+    destination.save()
+    .then(() => {
+      res.redirect(`/destinations/${destination._id}`)
+    })
+    .catch(err => {
+      console.log(err, 'ERROR')
+      res.redirect('/destinations')
+    })
+  })
+  .catch(err => {
+    console.log(err, 'ERROR')
+    res.redirect('/destinations')
+  })
+}
+
 export {
   index,
   newDestination as new,
   create,
   show,
+  // newReviewForm,
+  createReview,
 }

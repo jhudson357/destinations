@@ -4,8 +4,7 @@
 <section>
   <h1><%= title %> </h1>
   <% if (user) { %>
-    <h2>Write a Review</h2>
-    <form action="/destinations/<%= destination._id %>/reviews " method="POST">
+    <form action="/destinations" method="POST">
       <label>
         Title:
         <input type="text" name="title">
@@ -20,11 +19,11 @@
       </label>
       <label>
         Review:
-        <textarea name="review"></textarea>
+        <textarea name="title"></textarea>
       </label>
       <label>
         Rating:
-        <select name="rating">
+        <select name="continent">
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
@@ -35,16 +34,6 @@
       <button type="submit">Save Review</button>
     </form>
   <% } %>
-  <% if (destination.reviews.length) { %>
-    <% destination.reviews.forEach(review => { %>
-      <h2><%= review.title %> </h2>
-      <h3>By AUTHOR NAME HERE <%= review.author %>  </h3>
-      <p>Rating: <%= review.rating %> </p>
-      <p>Recommend: <%= review.recommend ? 'Yes' : 'No' %> </p>
-    <% }) %>
-  <% } else { %>
-    <h2>No Reviews Yet</h2>
-  <% } %> 
 </section>
 
 <%- include('../partials/footer') %>
