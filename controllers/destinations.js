@@ -16,8 +16,16 @@ function index(req, res) {
 }
 
 function newDestination(req, res) {
-  res.render('destinations/new', {
-    title: "Add a Destination That You've Visited"
+  Destination.find({})
+  .then(destinations => {
+    res.render('destinations/new', {
+      title: "Add a Destination That You've Visited",
+      destinations
+    })
+  })
+  .catch(err => {
+    console.log(err, 'ERROR')
+    res.redirect('/destinations')
   })
 }
 

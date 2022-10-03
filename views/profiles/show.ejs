@@ -16,6 +16,9 @@
   <% } else { %>
     <h1><%= isSelf ? 'You have not saved any visited destinations' : `${profile.name} has not save any visited destinations` %> </h1>
   <% } %>
+  <a href="/destinations/new">
+    <button>Add a Destination</button>
+  </a>
   <% if (isSelf) { %>
     <h1>Bucket List Destinations</h1>
     <form action="/profiles/<%= profile._id %>/bucket-list-destinations" method="POST">
@@ -53,7 +56,7 @@
 
     <% }) %>
   <% } else { %>
-    <p>You have no bucket list destinations saved</p>
+    <p><%= isSelf ? 'You have no bucket list destinations saved' : `${profile.name} has no bucket list destinations saved` %> </p>
   <% } %> 
     
 </main>

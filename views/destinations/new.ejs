@@ -4,7 +4,15 @@
 <section>
   <h1><%= title %> </h1>
   <% if (user) { %>
-    <p><i>NOTE: Please only add new destinations that are not already on the list.</i></p>
+    <p>
+      <i>NOTE: Please only add destinations that are not already on the list.</i>
+      <select>
+        <% destinations.forEach(destination => { %>
+          <option><%= `${destination.city}, ${destination.country}` %></option>
+        <% }) %>
+      </select>
+    </p>
+
     <form action="/destinations" method="POST">
       <label>
         City:
