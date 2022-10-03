@@ -4,6 +4,13 @@
 </head>
 <body>
   <nav>
+    <a 
+			href="/destinations"
+			<%- title === 'Destination Reviews' ? 'class="active"' : '' %>
+		>
+			DESTINATION REVIEWS
+		</a>
+    
     <% if (user) { %>
       <a href="/auth/logout" class="right">
         <button type="submit">Logout</button>
