@@ -1,4 +1,5 @@
 import { Profile } from "../models/profile.js"
+import { Destination } from "../models/destination.js"
 
 function index(req, res) {
   Profile.find({})
@@ -17,12 +18,17 @@ function index(req, res) {
 function show(req, res) {
   console.log('show function - profiles')
   Profile.findById(req.params.id)
+  .populate('destinations')
   .then(profile => {
     const isSelf = profile._id.equals(req.user.profile._id)
-    res.render('profiles/show', {
-      title: `${profile.name}'s Profile`,
-      profile,
-      isSelf,
+    Destination.find({_id: {$nin: profile.destinations}})
+    .then(destinations => {
+      res.render('profiles/show', {
+        title: `${profile.name}'s Profile`,
+        profile,
+        isSelf,
+        destinations,
+      })
     })
   })
   .catch(err => {
@@ -67,9 +73,30 @@ function deleteBucketListDestination(req, res) {
   })
 }
 
+function addDestination(req, res) {
+  console.log('addDestination function running')
+  Profile.findById(req.params.id)
+  .then(profile => {
+    profile.destinations.push(req.body.destinationId)
+    profile.save()
+    .then(() => {
+      res.refirect(`/profiles/${profile._id}`)
+    })
+    .catch(err => {
+      console.log(err, 'ERROR')
+      res.redirect(`/profiles/${profile._id}`)
+    })
+  })
+  .catch(err => {
+    console.log(err, 'ERROR')
+    res.redirect(`/profiles/${req.user.profile._id}`)
+  })
+}
+
 export {
   index,
   show,
   createBucketListDestination,
   deleteBucketListDestination,
+  addDestination,
 }

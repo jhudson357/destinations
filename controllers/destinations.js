@@ -166,13 +166,12 @@ function updateReview(req, res) {
   // find destination with the review
   Destination.findById(req.params.destinationId)
   .then(destination => {
-    // find and set subdocument (review)
     req.body.recommend = !!req.body.recommend   // checkbox handling
+    // find and set subdocument (review)
     const review = destination.reviews.id(req.params.reviewId)
     console.log(review, 'REVIEW')
     if(review.author._id.equals(req.user.profile._id)) {
       // the person making the req owns the review
-      // review.update(req.body)
       review.set(req.body)
       destination.save()
       .then(() => {

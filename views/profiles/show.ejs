@@ -10,15 +10,33 @@
     >
   </div>
   <h1> <%= isSelf ? `Hello, ${profile.name}!` : `${profile.name}'s Profile` %></h1>
+  <h1>Destinations Visited</h1>
   <% if (profile.destinations.length) { %>
     <h1><%= isSelf ? 'You have visited:' : `${profile.name} has visited:` %> </h1>
-    <h3>!!!!!! ADD THE DESTINATIONS HERE !!!!!</h3>
+    <h3>
+      <% profile.destinations.forEach(destination => { %>
+        <div>
+          <%= `${destination.city}, ${destination.country}` %> 
+        </div>
+      <% }) %>
+    </h3>
   <% } else { %>
-    <h1><%= isSelf ? 'You have not saved any visited destinations' : `${profile.name} has not save any visited destinations` %> </h1>
+    <h2><%= isSelf ? 'You have not saved any visited destinations' : `${profile.name} has not save any visited destinations` %> </h2>
   <% } %>
-  <a href="/destinations/new">
-    <button>Add a Destination</button>
-  </a>
+  <form action="/profiles/<%= profile._id %>/destinations" method="POST">
+    <select name="destinationId">
+      <% destinations.forEach(destination => { %>
+        <option value="<%= destination._id %>"><%= `${destination.city}, ${destination.country}` %></option>
+      <% }) %>
+    </select>
+    <button type="submit">Add Destination</button>
+  </form>
+  <label>
+    Not seeing a destination that you've visited? Add it to the list!
+    <a href="/destinations/new">
+      <button>Add Destination</button>
+    </a>
+  </label>
   <% if (isSelf) { %>
     <h1>Bucket List Destinations</h1>
     <form action="/profiles/<%= profile._id %>/bucket-list-destinations" method="POST">
