@@ -10,7 +10,7 @@
 <p><%= `Review: ${review.review}` %> <p>
 
 <% if (review.author._id.equals(user?.profile._id)) { %>
-  <form action="">
+  <form action="/destinations/<%= destination._id %>/reviews/<%= review._id %>/edit ">
     <button type="submit">Edit Review</button>
   </form>
 <% } %>

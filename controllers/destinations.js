@@ -120,16 +120,73 @@ function readReview(req, res) {
   .then(destination => {
     const review = destination.reviews.id(req.params.reviewId)
     console.log(review, 'REVIEW')
-
     res.render('reviews/show', {
       title: 'Review',
       destination, 
       review
     })
-    
   })
-  // Destination.findById(req.params.id)
-  // console.log(req.params.reviewsId, 'reviewsId')
+  .catch(err => {
+    console.log(err, 'ERROR')
+    res.redirect('/destinations')
+  })
+}
+
+function editReview(req, res) {
+  console.log('editReview')
+  Destination.findById(req.params.destinationId)
+  .populate({
+    path: 'reviews',
+    populate: {
+      path: 'author'
+    }
+  })
+  .then(destination => {
+    const review = destination.reviews.id(req.params.reviewId)
+    // console.log(review, 'REVIEW')
+    res.render('reviews/edit', {
+      title: 'Edit Review',
+      destination,
+      review,
+    })
+  })
+  .catch(err => {
+    console.log(err, 'ERROR')
+    res.redirect('/destinations')
+  })
+}
+
+function updateReview(req, res) {
+  // console.log('updateReview function running')
+  console.log(req.body, 'req.body - UPDATE REVIEW')
+  // delete blank inputs
+  for (let key in req.body) {
+    if(req.body[key] === "") delete req.body[key]
+  }
+  // find destination with the review
+  Destination.findById(req.params.destinationId)
+  .then(destination => {
+    // find and set subdocument (review)
+    req.body.recommend = !!req.body.recommend   // checkbox handling
+    const review = destination.reviews.id(req.params.reviewId)
+    console.log(review, 'REVIEW')
+    if(review.author._id.equals(req.user.profile._id)) {
+      // the person making the req owns the review
+      // review.update(req.body)
+      review.set(req.body)
+      destination.save()
+      .then(() => {
+        res.redirect(`/destinations/${destination._id}/reviews/${review._id}`)
+      })
+    } else {
+      // the person making the req does not own the review
+      throw new Error('🚫 Not authorized 🚫')
+    }
+  })
+  .catch(err => {
+    console.log(err, 'ERROR')
+    res.redirect(`/destinations`)
+  })
 }
 
 export {
@@ -137,8 +194,9 @@ export {
   newDestination as new,
   create,
   show,
-  // newReviewForm,
   createReview,
   deleteReview,
   readReview,
+  editReview,
+  updateReview,
 }
