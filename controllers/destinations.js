@@ -46,7 +46,7 @@ function show(req, res) {
   .then(destination => {
     res.render('destinations/show', {
       destination,
-      title: `${destination.city}, ${destination.country} Reviews`
+      title: `${destination.city}, ${destination.country}`
     })
   })
   .catch(err => {
@@ -54,13 +54,6 @@ function show(req, res) {
     res.redirect('/destinations')
   })
 }
-
-// function newReviewForm(req, res) {
-//   console.log(req.body, 'req.body')
-//   res.render('destinations/newReview', {
-//     title: `Write a Review`
-//   })
-// }
 
 function createReview(req, res) {
   console.log(req.params.id, 'destinationID')

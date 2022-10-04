@@ -9,6 +9,11 @@
 <p><%= `Recommend: ${review.recommend ? 'Yes' : 'No'}` %> <p>
 <p><%= `Review: ${review.review}` %> <p>
 
+<% if (review.author._id.equals(user?.profile._id)) { %>
+  <form action="">
+    <button type="submit">Edit Review</button>
+  </form>
+<% } %>
 <a href="/destinations/<%= destination._id %> ">
   <button>All Reviews</button>
 </a>
