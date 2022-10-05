@@ -1,41 +1,97 @@
 html {
-  box-sizing: border-box;
+  box-sizing: border-box
 }
 
 /* The Universal Selector */
 *, /* All elements*/
 *::before, /* All ::before pseudo-elements */
-*::after {
-  /* All ::after pseudo-elements */
-  /* height & width will now include border & padding by default but can be overridden as needed */
+*::after { /* All ::after pseudo-elements */
+  /* height & width will now include border & padding by default
+     but can be over-ridden as needed */
   box-sizing: inherit;
+  font-family: 'Poppins', sans-serif;
 }
 
 body {
-  background-color: #c48888;
-  color: #f6f6f6;
-  /* Use a system font, if none are available use any found sans-sarif font */
-  font-family: system-ui, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 
-    'Helvetica Neue', sans-serif;
+  background-color: gray;
   margin: 0;
+  color: #424748;
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: 70px 1fr;
+  grid-template-areas:
+    "nav"
+    "main";
+  font-size: 18px;
+}
+
+button {
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 18px;
+  border: 2px solid #080808;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: #080808;
+  color: white;
+  font-weight: 600;
+}
+
+body > main {
+  grid-area: main;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #e8eceb;
+  padding: 20px;
+}
+
+body > main h1:first-child {
+  margin-bottom: 25px;
 }
 
 nav {
-  background-color: #f6f6f6;
-  color: #1a1a1a;
+  grid-area: nav;
+  background-color: white;
   display: flex;
+  justify-content: flex-end;
   align-items: center;
+  padding: 0 20px 0 30px;
+  filter: drop-shadow(0 0 0.4rem lightgray);
+}
+
+nav > img {
+  height: 80%;
+  object-fit: contain;
+  margin-right: auto;
+}
+
+nav > a {
+  margin: 20px;
+  text-decoration: none;
   padding: 10px;
-  min-height: 60px;
+  border-radius: 5px;
+  color: #424748;
 }
 
-main {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+nav > a:visited {
+  color: #424748;
 }
 
-.right {
-  margin-left: auto;
+nav > #nav-reviews:hover,
+nav > #nav-profiles:hover {
+  color: white;
+  background-color: #080808;
+  font-weight: 600;
 }
+
+nav > a.active {
+  color: #080808;
+  font-weight: 600;
+}
+
+/* .fas::before {
+  font-family: "Font Awesome 5 Free";
+} */

@@ -1,23 +1,28 @@
 <%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/destinations/index.css">
 <%- include('../partials/nav') %>
 
 <section>
-  <h1><%= title %> </h1>
-  <% if (user) { %>
-    <a href="/destinations/new">
-      <button type="submit">Add a Destination</button>
-    </a>
-  <% } %>
-  <ul>
-    <% destinations.forEach(destination => { %>
-      <li> 
-        <a href="/destinations/<%= destination._id %>">
-          <h3><%= destination.city %></h3>
-          <h4><%= destination.country %></h4>
-        </a>
-      </li>
-    <% }) %>
-  </ul>
+  <div>
+    <div>
+      <h1><%= title %> </h1>
+    </div>
+    <% if (user) { %>
+      <a href="/destinations/new">
+        <button type="submit">Add a Destination</button>
+      </a>
+    <% } %>
+    <div class="all-cards">
+      <% destinations.forEach(destination => { %>
+        <div class="destination-card"> 
+          <a class="destination-name" href="/destinations/<%= destination._id %>">
+            <h3><%= destination.city %></h3>
+            <h4><%= destination.country %></h4>
+          </a>
+        </div>
+      <% }) %>
+    </div>
+  </div>
 </section>
 
 <%- include('../partials/footer') %>
