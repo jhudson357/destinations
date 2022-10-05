@@ -1,0 +1,94 @@
+* {
+  background-color: white;
+}
+
+section {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  color: #080808;
+  min-height: 100vh;
+  margin-bottom: 50px;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+h2 {
+  margin: 30px 0 20px;
+}
+
+h4 {
+  margin: 0 0 15px;
+}
+
+p {
+  padding: 15px;
+  margin: 0
+}
+
+div {
+  text-align: center;
+}
+
+section > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+}
+
+.review-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid #080808;
+  border-radius: 5px;
+  margin: 10px;
+  text-align: center;
+  width: 100%;
+  /* padding: 15px; */
+}
+
+.author-date {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 85%;
+}
+
+.rating-rec {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 85%;
+}
+
+.rating-rec > p {
+  width: 50%;
+  text-align: left;
+  margin-bottom: 0;
+}
+
+.review-text {
+  width: 85%;
+  text-align: left;
+  padding-bottom: 15px;
+}
+
+.edit-btn {
+  margin: 0 0 30px;
+}
+
+.back-btn {
+  background-color: #FFC8C8;
+  border: 3px solid #FFC8C8;
+  margin-top: 15px;
+}
+
+.back-btn:hover {
+  border: 3px solid #080808
+}

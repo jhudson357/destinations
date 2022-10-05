@@ -121,7 +121,7 @@ function readReview(req, res) {
     const review = destination.reviews.id(req.params.reviewId)
     console.log(review, 'REVIEW')
     res.render('reviews/show', {
-      title: 'Review',
+      title: `Review - ${destination.city}`,
       destination, 
       review
     })

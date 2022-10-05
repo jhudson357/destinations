@@ -66,8 +66,8 @@
               </a>
             </div>
             <div class="rating-rec">
-              <p>Rating: <%= review.rating %> </p>
-              <p>Recommend: <%= review.recommend ? 'Yes' : 'No' %> </p>
+              <p><u>Rating:</u> <%= review.rating %> </p>
+              <p><u>Recommend:</u> <%= review.recommend ? 'Yes' : 'No' %> </p>
             </div>
             <div class="del-btn">
               <% if (review.author._id.equals(user?.profile._id)) { %>

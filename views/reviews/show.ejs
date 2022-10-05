@@ -1,22 +1,39 @@
 <%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/reviews/show.css">
 <%- include('../partials/nav') %>
 
-<h1><%= `${destination.city}, ${destination.country}` %> </h1>
-<h2><%= review.title %> </h2>
-<h3><%= `By: ${review.author.name}` %> </h3>
-<h3><%= `Visited: ${review.dateVisited}` %> </h3>
-<p><%= `Rating (1-5): ${review.rating}` %> <p>
-<p><%= `Recommend: ${review.recommend ? 'Yes' : 'No'}` %> <p>
-<p><%= `Review: ${review.review}` %> <p>
-
-<% if (review.author._id.equals(user?.profile._id)) { %>
-  <form action="/destinations/<%= destination._id %>/reviews/<%= review._id %>/edit ">
-    <button type="submit">Edit Review</button>
-  </form>
-<% } %>
-<a href="/destinations/<%= destination._id %> ">
-  <button>All Reviews</button>
-</a>
+<section>
+  <div>
+    <div>
+      <h1><%= `${destination.city}, ${destination.country}` %> </h1>
+    </div>
+    <div class="review-container">
+      <div>
+        <h2><%= review.title %> </h2>
+      </div>
+      <div class="author-date">
+        <h4><%= `By ${review.author.name} (Visited ${review.dateVisited})` %> </h4>
+      </div>
+      <div class="rating-rec">
+        <p><u>Rating (1—5):</u> <%= review.rating %> </p>
+        <p><u>Recommend:</u> <%=review.recommend ? 'Yes' : 'No'%> </p>
+      </div>
+      <div class="review-text">
+        <p><u>Review:</u> <%=review.review%> </p>
+      </div>
+      <% if (review.author._id.equals(user?.profile._id)) { %>
+        <form action="/destinations/<%= destination._id %>/reviews/<%= review._id %>/edit ">
+          <button class="edit-btn" type="submit">Edit Review</button>
+        </form>
+      <% } %>
+    </div>
+    <div>
+      <a href="/destinations/<%= destination._id %> ">
+        <button class="back-btn">All Reviews</button>
+      </a>
+    </div>
+  </div>
+</section>
 
 
 

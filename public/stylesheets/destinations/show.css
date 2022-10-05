@@ -117,7 +117,7 @@ textarea {
 }
 
 .review-header {
-  text-align: left;
+  text-align: center;
   width: 85%;
 }
 
@@ -157,7 +157,7 @@ a > h3:hover {
 
 .rating-rec > p {
   width: 50%;
-  text-align: left;
+  text-align: center;
   margin-bottom: 0;
 }
 
