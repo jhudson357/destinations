@@ -1,0 +1,164 @@
+* {
+  background-color: white;
+}
+
+section {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  color: #080808;
+  min-height: 100vh;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+div {
+  text-align: center;
+}
+
+section > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+}
+
+div > label {
+  padding: 15px;
+}
+
+.review-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid #080808;
+  border-radius: 5px;
+  margin: 10px;
+  text-align: center;
+  width: 93%;
+  /* padding: 15px; */
+}
+
+.review-form-content {
+  width: 85%;
+}
+
+.form-btn {
+  margin: 15px 0 30px;
+}
+
+.form-head > h2 {
+  margin: 30px 0 20px;
+}
+
+.form-two-fields {
+  display: flex;
+}
+
+.form-two-fields > label {
+  width: 50%;
+  text-align: left;
+}
+
+.form-review {
+  text-align: left;
+  display: flex;
+}
+
+.form-review > div {
+  width: 10%;
+  text-align: left;
+}
+
+.form-review > textarea {
+  width: 90%;
+}
+
+input, 
+select,
+textarea {
+  margin-left: 25px;
+}
+
+/* input, 
+label > select {
+  margin-left: 25px;
+} */
+
+
+
+
+
+
+.all-reviews {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.review-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid #080808;
+  border-radius: 5px;
+  margin: 10px;
+  text-align: center;
+  width: 46%;
+}
+
+.review-header {
+  text-align: left;
+  width: 85%;
+}
+
+h3 {
+  margin-bottom: 10px;
+  color: #080808;
+}
+
+a {
+  text-decoration: none;
+}
+
+h3:hover {
+  color: #2ACF9D;
+}
+
+.rating-rec {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 85%;
+}
+
+.del-btn {
+  margin: 30px 0;
+}
+
+.back-btn {
+  background-color: #2ACF9D;
+  border: 3px solid #2ACF9D;
+  margin-top: 15px;
+}
+
+.back-btn:hover {
+  border: 3px solid #080808
+}
+
+.rating-rec > p {
+  width: 50%;
+  text-align: left;
+  margin-bottom: 0;
+}
+
+.rating-rec > label {
+  width: 50%;
+  text-align: left;
+}

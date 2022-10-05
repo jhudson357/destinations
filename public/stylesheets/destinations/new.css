@@ -17,7 +17,7 @@ section > div {
   border: 3px solid #080808;
   border-radius: 10px;
   margin-top: 35px;
-  padding: 15px;
+  padding: 0 20px;
   width: 50%;
   text-align: center;
 }
@@ -60,11 +60,11 @@ form {
   justify-content: center;
 }  
 
-input,
+/* input,
 select {
   border-radius: 5px;
   font-size: 18px;
-}
+} */
 
 input, 
 label > select {

@@ -13,7 +13,7 @@ html {
 }
 
 body {
-  background-color: gray;
+  background-color: white;
   margin: 0;
   color: #424748;
   min-height: 100vh;
@@ -25,9 +25,29 @@ body {
   font-size: 18px;
 }
 
+h1 {
+  font-weight: 600;
+  font-size: 36px;
+}
+
+h2 {
+  font-weight: 600;
+  font-size: 32px;
+}
+
+h3 {
+  font-weight: 600;
+  font-size: 30px;
+}
+
+h4 {
+  font-weight: 400;
+  font-size: 22px;
+}
+
 button {
   border-radius: 5px;
-  padding: 5px;
+  padding: 5px 15px;
   font-size: 18px;
   border: 3px solid #080808;
 }
@@ -37,6 +57,13 @@ button:hover {
   background-color: #080808;
   color: white;
   font-weight: 600;
+}
+
+input,
+select,
+textarea {
+  border-radius: 5px;
+  font-size: 18px;
 }
 
 body > main {
