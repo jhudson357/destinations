@@ -21,7 +21,7 @@
               </label>
               <label>
                 Date Visited:
-                <input type="text" name="dateVisited" placeholder="Month Year">
+                <input type="text" name="dateVisited" placeholder="Month Year" autocomplete="off">
               </label>
             </div>
             <div class="form-two-fields">
@@ -37,7 +37,7 @@
               </label>
               <label>
                 Recommend:
-                <input type="checkbox" name="recommend">
+                <input class="checkbox" type="checkbox" name="recommend">
               </label>
             </div>
             <div>
@@ -79,7 +79,7 @@
           </div>
           <% }) %>
         <% } else { %>
-          <h2>No Reviews Yet</h2>
+          <h3>No Reviews Yet</h3>
         <% } %>
     </div>
     <div>
