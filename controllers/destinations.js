@@ -19,7 +19,7 @@ function newDestination(req, res) {
   Destination.find({})
   .then(destinations => {
     res.render('destinations/new', {
-      title: "Add a Destination That You've Visited",
+      title: "Add a Destination",
       destinations
     })
   })

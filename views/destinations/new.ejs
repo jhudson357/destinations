@@ -1,42 +1,45 @@
 <%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/destinations/new.css">
 <%- include('../partials/nav') %>
 
 <section>
-  <h1><%= title %> </h1>
-  <% if (user) { %>
-    <p>
-      <i>NOTE: Please only add destinations that are not already on the list.</i>
-      <select>
-        <% destinations.forEach(destination => { %>
-          <option><%= `${destination.city}, ${destination.country}` %></option>
-        <% }) %>
-      </select>
-    </p>
-
-    <form action="/destinations" method="POST">
-      <label>
-        City:
-        <input type="text" name="city" autocomplete="off">
-      </label>
-      <label>
-        Country:
-        <input type="text" name="country" autocomplete="off">
-      </label>
-      <label>
-        Continent:
-        <select name="continent">
-          <option value="Africa">Africa</option>
-          <option value="Antarctica">Antarctica</option>
-          <option value="Asia">Asia</option>
-          <option value="Australia">Australia</option>
-          <option value="Europe">Europe</option>
-          <option value="North America">North America</option>
-          <option value="South America">South America</option>
+  <div>
+    <h1><%= title %> </h1>
+    <% if (user) { %>
+      <p class="existing-destinations">
+        <i>NOTE: Please only add destinations that are not already on the list.</i>
+        <select>
+          <% destinations.forEach(destination => { %>
+            <option><%= `${destination.city}, ${destination.country}` %></option>
+          <% }) %>
         </select>
-      </label>
-      <button type="submit">Add Destination</button>
-    </form>
-  <% } %>
+      </p>
+  
+      <form action="/destinations" method="POST">
+        <label>
+          City:
+          <input type="text" name="city" autocomplete="off">
+        </label>
+        <label>
+          Country:
+          <input type="text" name="country" placeholder="Full name" autocomplete="off">
+        </label>
+        <label>
+          Continent:
+          <select name="continent">
+            <option value="Africa">Africa</option>
+            <option value="Antarctica">Antarctica</option>
+            <option value="Asia">Asia</option>
+            <option value="Australia">Australia</option>
+            <option value="Europe">Europe</option>
+            <option value="North America">North America</option>
+            <option value="South America">South America</option>
+          </select>
+        </label>
+        <button type="submit">Add Destination</button>
+      </form>
+    <% } %>
+  </div>
 </section>
 
 <%- include('../partials/footer') %>
