@@ -7,11 +7,13 @@
     <div>
       <h1><%= title %> </h1>
     </div>
-    <% if (user) { %>
-      <a href="/destinations/new">
-        <button type="submit">Add a Destination</button>
-      </a>
-    <% } %>
+    <div>
+      <% if (user) { %>
+        <a href="/destinations/new">
+          <button class="add-destination" type="submit">Add a Destination</button>
+        </a>
+      <% } %>
+    </div>
     <div class="all-cards">
       <% destinations.forEach(destination => { %>
         <div class="destination-card"> 

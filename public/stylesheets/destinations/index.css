@@ -33,27 +33,29 @@ h4 {
 section > div {
   display: flex;
   align-items: center;
-  justify-content: center;
+  /* justify-content: center; */
   flex-direction: column;
   width: 80%;
 }
 
-section > button {
-  background-color: white;
-  border-radius: 5px;
-  padding: 10px;
-  font-size: 18px;
+.add-destination {
+  background-color: #7C92FD;
+  border: 3px solid #7C92FD;
+  margin-bottom: 15px;
 }
 
 button:hover {
   cursor: pointer;
   background-color: #080808;
+  border: 3px solid #080808;
   color: white;
   font-weight: 600;
 }
 
 .all-cards {
-  width: 50%;
+  /* width: 50%; */
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .destination-card {
@@ -64,6 +66,7 @@ button:hover {
   border-radius: 5px;
   margin: 10px;
   text-align: center;
+  width: 45%;
 }
 
 .destination-card > a:hover {

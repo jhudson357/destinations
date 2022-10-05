@@ -29,7 +29,7 @@ button {
   border-radius: 5px;
   padding: 5px;
   font-size: 18px;
-  border: 2px solid #080808;
+  border: 3px solid #080808;
 }
 
 button:hover {

@@ -7,14 +7,14 @@
     <h1><%= title %> </h1>
     <% if (user) { %>
       <p class="existing-destinations">
-        <i>NOTE: Please only add destinations that are not already on the list.</i>
+        <i>NOTE: Please only add destinations that are not on the list.</i>
         <select>
           <% destinations.forEach(destination => { %>
             <option><%= `${destination.city}, ${destination.country}` %></option>
           <% }) %>
         </select>
       </p>
-  
+      <hr>
       <form action="/destinations" method="POST">
         <label>
           City:
