@@ -119,6 +119,11 @@ nav > a.active {
   font-weight: 600;
 }
 
+input:placeholder-shown,
+textarea:placeholder-shown {
+  font-style: italic;
+}
+
 /* .fas::before {
   font-family: "Font Awesome 5 Free";
 } */

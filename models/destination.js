@@ -6,8 +6,14 @@ const reviewSchema = new Schema({
   dateVisited: String,
   rating: Number,
   recommend: Boolean,
-  title: String,
-  review: String,
+  title: {
+    type: String,
+    required: true,
+  },
+  review: {
+    type: String,
+    required: true,
+  },
   author: {type: Schema.Types.ObjectId, ref: 'Profile'},
   // author: String,
 }, {
@@ -15,9 +21,18 @@ const reviewSchema = new Schema({
 })
 
 const destinationSchema = new Schema({
-  city: String,
-  country: String,
-  continent: String,
+  city: {
+    type: String,
+    required: true,
+  },
+  country: {
+    type: String,
+    required: true,
+  },
+  continent: {
+  type: String,
+  required: true,
+  },
   reviews: [reviewSchema]
 }, {
   timestamps: true,
