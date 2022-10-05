@@ -88,7 +88,6 @@ textarea {
   margin-left: 25px;
 }
 
-
 .checkbox {
   width: 18px;
   height: 18px;
@@ -97,10 +96,6 @@ textarea {
 .checkbox:checked {
   accent-color: #2ACF9D;
 }
-
-
-
-
 
 .all-reviews {
   display: flex;
