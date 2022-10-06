@@ -87,6 +87,8 @@ nav {
   align-items: center;
   padding: 0 20px 0 30px;
   filter: drop-shadow(0 0 0.4rem lightgray);
+  position: sticky;
+  top: 0px;
 }
 
 nav > img {
