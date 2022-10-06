@@ -41,6 +41,7 @@ div > label {
   margin: 10px;
   text-align: center;
   width: 94%;
+  box-shadow: 0px 5px .6em rgb(211, 211, 211, .5);
 }
 
 .review-form-content {
@@ -113,6 +114,7 @@ textarea {
   margin: 10px;
   text-align: center;
   width: 46%;
+  box-shadow: 0px 5px .6em rgb(211, 211, 211, .5);
 }
 
 .review-header {

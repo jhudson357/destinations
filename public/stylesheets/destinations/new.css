@@ -20,6 +20,7 @@ section > div.form {
   padding: 0 20px;
   width: 50%;
   text-align: center;
+  box-shadow: 0px 5px .6em rgb(211, 211, 211, .5);
 }
 
 h1 {
