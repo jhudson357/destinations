@@ -1,0 +1,77 @@
+* {
+  background-color: white;
+}
+
+section {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  color: #080808;
+  min-height: 100vh;
+  margin-bottom: 50px;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+h3 {
+  margin: 20px 0 10px;
+}
+
+a {
+  text-decoration: none;
+  color: #080808;
+}
+
+a:hover {
+  color: #1B8364;
+}
+
+div {
+  text-align: center;
+}
+
+section > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+}
+
+.visited-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.continent-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid #080808;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 0 15px 20px;
+  text-align: center;
+  width: 46%;
+  box-shadow: 0px 5px .6em rgb(211, 211, 211, .5);
+}
+
+.visited-dest-btn,
+.new-dest-btn {
+  margin-top: 25px;
+}
+
+.new-dest-btn {
+  background-color: #1B8364;
+  border: 2px solid #1B8364;
+  color: white;
+}
+
+.new-dest-btn:hover {
+  border: 2px solid #080808
+}

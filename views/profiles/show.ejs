@@ -1,219 +1,246 @@
 <%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/profiles/show.css">
 <%- include('../partials/nav') %>
 
-<main>
-  <h1> <%= isSelf ? 'Your Destinations' : `${profile.name}'s Destinations` %></h1>
-  <h2>Destinations Visited</h2>
-  <% if (profile.destinations.length) { %>
-    
-    <div class="africa">
-      <% let countAf = 0 %> 
-      <% profile.destinations.forEach(destination => { %>
-        <% if (destination.continent === 'Africa') { %>
-          <% countAf+=1 %>
-        <% } %>
-      <% }) %>
-      <% if (countAf > 0) { %>
-        <h3>Africa</h3>
+<section>
+  <div>
+    <h1> <span style="color: #1B8364"><%= isSelf ? 'Your ' : `${profile.name}'s ` %></span> Destinations</h1>
+    <% if (profile.destinations.length) { %>
+      
+    <div class="visited-container">
+      
+        <% let countAf = 0 %> 
         <% profile.destinations.forEach(destination => { %>
           <% if (destination.continent === 'Africa') { %>
-            <div>
-              <%= `${destination.city}, ${destination.country}` %> 
-            </div>
+            <% countAf+=1 %>
           <% } %>
         <% }) %>
-      <% } %>
-      <% console.log(countAf, 'COUNT AF') %>
-    </div>
-
-    <div class="antarctica">
-      <% let countAn = 0 %> 
-      <% profile.destinations.forEach(destination => { %>
-        <% if (destination.continent === 'Antarctica') { %>
-          <% countAn+=1 %>
+        <% if (countAf > 0) { %>
+          <div class="africa continent-container">    
+            <h3>Africa</h3>
+            <% profile.destinations.forEach(destination => { %>
+              <% if (destination.continent === 'Africa') { %>
+                <div>
+                  <a href="/destinations/<%= destination._id %> ">
+                    <%= `${destination.city}, ${destination.country}` %> 
+                  </a>
+                </div>
+              <% } %>
+            <% }) %>
+          </div>
         <% } %>
-      <% }) %>
-      <% if (countAn > 0) { %>
-        <h3>Antarctica</h3>
+        <% console.log(countAf, 'COUNT AF') %>
+      
+
+        <% let countAn = 0 %> 
         <% profile.destinations.forEach(destination => { %>
           <% if (destination.continent === 'Antarctica') { %>
-            <div>
-              <%= `${destination.city}, ${destination.country}` %> 
-            </div>
+            <% countAn+=1 %>
           <% } %>
         <% }) %>
-      <% } %>
-      <% console.log(countAn, 'COUNT AN') %>
-    </div>
-
-    <div class="asia">
-      <% let countAs = 0 %> 
-      <% profile.destinations.forEach(destination => { %>
-        <% if (destination.continent === 'Asia') { %>
-          <% countAs+=1 %>
+        <% if (countAn > 0) { %>
+          <div class="antarctica continent-container">
+          <h3>Antarctica</h3>
+            <% profile.destinations.forEach(destination => { %>
+              <% if (destination.continent === 'Antarctica') { %>
+                <div>
+                  <a href="/destinations/<%= destination._id %> ">
+                    <%= `${destination.city}, ${destination.country}` %> 
+                  </a>
+                </div>
+              <% } %>
+            <% }) %>
+          </div>
         <% } %>
-      <% }) %>
-      <% if (countAs > 0) { %>
-        <h3>Asia</h3>
+        <% console.log(countAn, 'COUNT AN') %>
+      
+
+        <% let countAs = 0 %> 
         <% profile.destinations.forEach(destination => { %>
           <% if (destination.continent === 'Asia') { %>
-            <div>
-              <%= `${destination.city}, ${destination.country}` %> 
-            </div>
+            <% countAs+=1 %>
           <% } %>
         <% }) %>
-      <% } %>
-      <% console.log(countAs, 'COUNT AS') %>  
-    </div>
-
-    <div class="australia">
-      <% let countAu = 0 %> 
-      <% profile.destinations.forEach(destination => { %>
-        <% if (destination.continent === 'Australia') { %>
-          <% countAu+=1 %>
+        <% if (countAs > 0) { %>
+          <div class="asia continent-container">
+            <h3>Asia</h3>
+            <% profile.destinations.forEach(destination => { %>
+              <% if (destination.continent === 'Asia') { %>
+                <div>
+                  <a href="/destinations/<%= destination._id %> ">
+                    <%= `${destination.city}, ${destination.country}` %> 
+                  </a>
+                </div>
+              <% } %>
+            <% }) %>
+          </div>
         <% } %>
-      <% }) %>
-      <% if (countAu > 0) { %>
-        <h3>Australia</h3>
+        <% console.log(countAs, 'COUNT AS') %>  
+      
+
+        <% let countAu = 0 %> 
         <% profile.destinations.forEach(destination => { %>
           <% if (destination.continent === 'Australia') { %>
-            <div>
-              <%= `${destination.city}, ${destination.country}` %> 
-            </div>
+            <% countAu+=1 %>
           <% } %>
         <% }) %>
-      <% } %>
-      <% console.log(countAu, 'COUNT AU') %>  
-    </div>
-
-    <div class="europe">
-      <% let countEu = 0 %> 
-      <% profile.destinations.forEach(destination => { %>
-        <% if (destination.continent === 'Europe') { %>
-          <% countEu+=1 %>
+        <% if (countAu > 0) { %>
+          <div class="australia continent-container">
+            <h3>Australia</h3>
+            <% profile.destinations.forEach(destination => { %>
+              <% if (destination.continent === 'Australia') { %>
+                <div>
+                  <a href="/destinations/<%= destination._id %> ">
+                    <%= `${destination.city}, ${destination.country}` %> 
+                  </a>
+                </div>
+              <% } %>
+            <% }) %>
+          </div>
         <% } %>
-      <% }) %>
-      <% if (countEu > 0) { %>
-        <h3>Europe</h3>
+        <% console.log(countAu, 'COUNT AU') %>  
+      
+
+        <% let countEu = 0 %> 
         <% profile.destinations.forEach(destination => { %>
           <% if (destination.continent === 'Europe') { %>
-            <div>
-              <%= `${destination.city}, ${destination.country}` %> 
-            </div>
+            <% countEu+=1 %>
           <% } %>
         <% }) %>
-      <% } %>
-      <% console.log(countEu, 'COUNT EU') %>  
-    </div>
-
-    <div class="north-america">
-      <% let countNA = 0 %> 
-      <% profile.destinations.forEach(destination => { %>
-        <% if (destination.continent === 'North America') { %>
-          <% countNA+=1 %>
+        <% if (countEu > 0) { %>
+          <div class="europe continent-container">
+            <h3>Europe</h3>
+            <% profile.destinations.forEach(destination => { %>
+              <% if (destination.continent === 'Europe') { %>
+                <div>
+                  <a href="/destinations/<%= destination._id %> ">
+                    <%= `${destination.city}, ${destination.country}` %> 
+                  </a>
+                </div>
+              <% } %>
+            <% }) %>
+          </div>
         <% } %>
-      <% }) %>
-      <% if (countNA > 0) { %>
-        <h3>North America</h3>
+        <% console.log(countEu, 'COUNT EU') %>  
+      
+
+        <% let countNA = 0 %> 
         <% profile.destinations.forEach(destination => { %>
           <% if (destination.continent === 'North America') { %>
-            <div>
-              <%= `${destination.city}, ${destination.country}` %> 
-            </div>
+            <% countNA+=1 %>
           <% } %>
         <% }) %>
-      <% } %>
-      <% console.log(countNA, 'COUNT NA') %>  
-    </div>
-
-    <div class="south-america">
-      <% let countSA = 0 %> 
-      <% profile.destinations.forEach(destination => { %>
-        <% if (destination.continent === 'South America') { %>
-          <% countSA+=1 %>
+        <% if (countNA > 0) { %>
+          <div class="north-america continent-container">
+            <h3>North America</h3>
+            <% profile.destinations.forEach(destination => { %>
+              <% if (destination.continent === 'North America') { %>
+                <div>
+                  <a href="/destinations/<%= destination._id %> ">
+                    <%= `${destination.city}, ${destination.country}` %> 
+                  </a>
+                </div>
+              <% } %>
+            <% }) %>
+          </div>
         <% } %>
-      <% }) %>
-      <% if (countSA > 0) { %>
-        <h3>South America</h3>
+        <% console.log(countNA, 'COUNT NA') %>  
+      
+
+        <% let countSA = 0 %> 
         <% profile.destinations.forEach(destination => { %>
           <% if (destination.continent === 'South America') { %>
-            <div>
-              <%= `${destination.city}, ${destination.country}` %> 
-            </div>
+            <% countSA+=1 %>
           <% } %>
         <% }) %>
-      <% } %>
-      <% console.log(countSA, 'COUNT SA') %>  
-    </div>
-
-    
-    <!-- <p>
-      <%# profile.destinations.forEach(destination => { %>
-        <div>
-          <%#= `${destination.city}, ${destination.country}` %> 
-        </div>
-      <%# }) %>
-    </p> -->
-
-    
-  <% } else { %>
-    <p><%= isSelf ? 'You have not saved any visited destinations' : `${profile.name} has not saved any visited destinations` %> </p>
-  <% } %>
-  <% if (isSelf) { %>
-    <form action="/profiles/<%= profile._id %>/destinations" method="POST">
-      <select name="destinationId">
-        <% destinations.forEach(destination => { %>
-          <option value="<%= destination._id %>"><%= `${destination.city}, ${destination.country}` %></option>
-        <% }) %>
-      </select>
-      <button type="submit">Add Destination</button>
-    </form>
-    <label>
-      Not seeing a destination that you've visited? Add it to the list!
-      <a href="/destinations/new">
-        <button>Add Destination</button>
-      </a>
-    </label>
-  <% } %>
-  <h2>Bucket List Destinations</h2>
-  <% if (profile.bucketListDestinations.length) { %>
-    <% profile.bucketListDestinations.forEach(destination => { %>
-      <p>
-        Location: <%= destination.location %>
-        Information: <%= destination.info %>
-        Year: <%= destination.year %> 
-        <% if (isSelf) { %>
-          <form
-            action="/profiles/bucket-list-destinations/<%= destination._id %>?_method=DELETE"
-            method="POST"
-            style="display: inline-block"
-          >
-            <button type="submit">Delete</button>
-          </form>
+        <% if (countSA > 0) { %>
+          <div class="south-america continent-container">
+            <h3>South America</h3>
+            <% profile.destinations.forEach(destination => { %>
+              <% if (destination.continent === 'South America') { %>
+                <div>
+                  <a href="/destinations/<%= destination._id %> ">
+                    <%= `${destination.city}, ${destination.country}` %> 
+                  </a>
+                </div>
+              <% } %>
+            <% }) %>
+          </div>
         <% } %>
-      </p>
-    <% }) %>
-  <% } else { %>
-    <p><%= isSelf ? 'You have not saved any bucket list destinations' : `${profile.name} has not saved any bucket list destinations` %> </p>
-  <% } %>
-  <% if (isSelf) { %>
-    <form action="/profiles/<%= profile._id %>/bucket-list-destinations" method="POST">
+        <% console.log(countSA, 'COUNT SA') %>  
+
+
+    </div>
+      
+  
+      
+      <!-- <p>
+        <%# profile.destinations.forEach(destination => { %>
+          <div>
+            <%#= `${destination.city}, ${destination.country}` %> 
+          </div>
+        <%# }) %>
+      </p> -->
+  
+  
+    <% } else { %>
+      <p><%= isSelf ? 'You have not saved any visited destinations' : `${profile.name} has not saved any visited destinations` %> </p>
+    <% } %>
+    <% if (isSelf) { %>
+      <form action="/profiles/<%= profile._id %>/destinations" method="POST">
+        <select name="destinationId">
+          <% destinations.forEach(destination => { %>
+            <option value="<%= destination._id %>"><%= `${destination.city}, ${destination.country}` %></option>
+          <% }) %>
+        </select>
+        <button class="visited-dest-btn" type="submit">Add Visited Destination</button>
+      </form>
       <label>
-        Location: 
-        <input type="text" name="location" autocomplete="off">
+        Not seeing a destination that you've visited? Add it to the list!
+        <a href="/destinations/new">
+          <button class="new-dest-btn">Add New Destination</button>
+        </a>
       </label>
-      <label>
-        Information: 
-        <textarea name="info"></textarea>
-      </label>
-      <label>
-        What year would you like to travel here? 
-        <input type="number" name="year" autocomplete="off">
-      </label>
-      <button type="submit">Add Bucket List Destination</button>
-    </form>
-  <% } %>
-    
-</main>
+    <% } %>
+    <h2>Bucket List Destinations</h2>
+    <% if (profile.bucketListDestinations.length) { %>
+      <% profile.bucketListDestinations.forEach(destination => { %>
+        <p>
+          Location: <%= destination.location %>
+          Information: <%= destination.info %>
+          Year: <%= destination.year %> 
+          <% if (isSelf) { %>
+            <form
+              action="/profiles/bucket-list-destinations/<%= destination._id %>?_method=DELETE"
+              method="POST"
+              style="display: inline-block"
+            >
+              <button type="submit">Delete</button>
+            </form>
+          <% } %>
+        </p>
+      <% }) %>
+    <% } else { %>
+      <p><%= isSelf ? 'You have not saved any bucket list destinations' : `${profile.name} has not saved any bucket list destinations` %> </p>
+    <% } %>
+    <% if (isSelf) { %>
+      <form action="/profiles/<%= profile._id %>/bucket-list-destinations" method="POST">
+        <label>
+          Location: 
+          <input type="text" name="location" autocomplete="off">
+        </label>
+        <label>
+          Information: 
+          <textarea name="info"></textarea>
+        </label>
+        <label>
+          What year would you like to travel here? 
+          <input type="number" name="year" autocomplete="off">
+        </label>
+        <button type="submit">Add Bucket List Destination</button>
+      </form>
+    <% } %>
+    </div>
+</section>
 
 <%- include('../partials/footer') %>
