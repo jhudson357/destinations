@@ -13,6 +13,9 @@ Destinations stores a list of destinations that you have visited and a list of t
 - [Whimsical Wireframe](https://whimsical.com/destinations-wireframes-L3Uw37Wn2XbuMfEXbsSxuv)
 
 # Screenshots
+![Destination Reviews Index View](/public/assets/destinations-index.png)
+![Destination Reviews Show View](/public/assets/destinations-show.png)
+![Profile Show View](/public/assets/profiles-show.png)
 
 # Technologies Used
 - MongoDb with Mongoose
