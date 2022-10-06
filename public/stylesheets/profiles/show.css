@@ -74,6 +74,10 @@ section > div {
   box-shadow: 0px 5px .6em rgb(211, 211, 211, .5);
 }
 
+.continent-container:hover {
+  box-shadow: 0px 5px .6em rgba(40, 40, 40, 0.7);
+}
+
 .visited-dest-btn {
   margin-bottom: 15px;
 }

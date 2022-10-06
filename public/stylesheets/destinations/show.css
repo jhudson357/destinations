@@ -116,6 +116,10 @@ textarea {
   box-shadow: 0px 5px .6em rgb(211, 211, 211, .5);
 }
 
+.review-card:hover {
+  box-shadow: 0px 5px .6em rgba(40, 40, 40, 0.7);
+}
+
 .review-header {
   text-align: center;
   width: 85%;
