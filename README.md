@@ -1,9 +1,9 @@
 # About Destinations
 Destinations stores a list of destinations that you have visited and a list of those that you hope to visit. It also serves as a place to leave and read reviews for any destination.
-- [Click here to try the app](https://destinations.fly.dev/)
+- [Click here to launch the app](https://destinations.fly.dev/)
 
 # Getting Started
-- [Click here to try the app](https://destinations.fly.dev/)
+- [Click here to launch the app](https://destinations.fly.dev/)
 - Log in with Google
 - Add your visited destinations and bucket list destinations to your profile
 - Leave reviews for any destination
