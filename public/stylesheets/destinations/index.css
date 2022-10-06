@@ -15,6 +15,11 @@ a {
   color: #080808;
 }
 
+h3, h4 {
+  word-break: break-word;
+  hyphens: auto;
+}
+
 section > div {
   display: flex;
   align-items: center;
@@ -69,8 +74,8 @@ button:hover {
   width: 100%;
 }
 
-/* .destination-card:hover, 
-h3:hover,
-h4:hover {
-  background-color: #FFC8C8;
-} */
+@media only screen and (max-width: 762px) {
+  .destination-card {
+    width: 100%;
+  }
+}

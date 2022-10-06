@@ -92,3 +92,9 @@ section > div {
 .back-btn:hover {
   border: 2px solid #080808
 }
+
+@media only screen and (max-width: 762px) {
+  section > div {
+    width: 75%;
+  }
+}

@@ -61,12 +61,6 @@ form {
   justify-content: center;
 }  
 
-/* input,
-select {
-  border-radius: 5px;
-  font-size: 18px;
-} */
-
 input, 
 label > select {
   margin-left: 25px;
@@ -91,4 +85,10 @@ form > button {
 
 .back-btn:hover {
   border: 2px solid #080808
+}
+
+@media only screen and (max-width: 762px) {
+  section > div.form {
+    width: 75%;
+  }
 }

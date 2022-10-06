@@ -140,7 +140,7 @@ a > h3:hover {
 
 .rating-rec {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   width: 85%;
 }
@@ -164,4 +164,10 @@ a > h3:hover {
   width: 50%;
   text-align: center;
   margin-bottom: 0;
+}
+
+@media only screen and (max-width: 762px) {
+  .review-card {
+    width: 100%;
+  }
 }

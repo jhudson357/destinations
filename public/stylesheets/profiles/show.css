@@ -167,3 +167,11 @@ form {
 .bucket-list-btn {
   margin: 15px 0 30px;
 }
+
+@media only screen and (max-width: 762px) {
+  .continent-container,
+  .bucket-list-card,
+  .bucket-list-form {
+    width: 96%;
+  }
+}
