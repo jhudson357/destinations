@@ -85,10 +85,10 @@ section > div {
 
 .back-btn {
   background-color: #FFC8C8;
-  border: 3px solid #FFC8C8;
+  border: 2px solid #FFC8C8;
   margin-top: 15px;
 }
 
 .back-btn:hover {
-  border: 3px solid #080808
+  border: 2px solid #080808
 }

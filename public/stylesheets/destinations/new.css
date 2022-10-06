@@ -29,7 +29,7 @@ h1 {
 }
 
 i {
-  color: #FF6666;
+  color: #4967FD;
 }
 
 .existing-destinations {
@@ -48,7 +48,7 @@ i {
 
 hr {
   width: 90%;
-  background-color: #FF6666;
+  background-color: #7C92FD;
   height: 2px;
   border-width: 0;
 }
@@ -83,11 +83,11 @@ form > button {
 }
 
 .back-btn {
-  background-color: #FF6666;
-  border: 3px solid #FF6666;
+  background-color: #7C92FD;
+  border: 2px solid #7C92FD;
   margin-top: 15px;
 }
 
 .back-btn:hover {
-  border: 3px solid #080808
+  border: 2px solid #080808
 }

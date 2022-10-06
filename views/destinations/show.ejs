@@ -5,7 +5,33 @@
 <section>
   <div>
     <div>
-      <h1><%= title %> </h1>
+      <h1><span style="color: #1B8364;"><%= title %></span> Reviews</h1>
+    </div>
+    <div class="all-reviews">
+      <% if (destination.reviews.length) { %>
+        <% destination.reviews.forEach(review => { %>
+          <div class="review-card">
+            <div class="review-header">
+              <a href="/destinations/<%= destination._id %>/reviews/<%= review._id %>">
+                <h3><%= review.title %> </h3>
+              </a>
+            </div>
+            <div class="rating-rec">
+              <p><u>Rating:</u> <%= review.rating %> </p>
+              <p><u>Recommend:</u> <%= review.recommend ? 'Yes' : 'No' %> </p>
+            </div>
+            <div class="del-btn">
+              <% if (review.author._id.equals(user?.profile._id)) { %>
+                <form action="/destinations/<%= destination._id %>/reviews/<%= review._id %>?_method=DELETE" method="POST">
+                  <button type="submit">Delete</button>
+                </form>
+              <% } %>
+            </div>
+          </div>
+          <% }) %>
+        <% } else { %>
+          <h3>No Reviews Yet</h3>
+        <% } %>
     </div>
     <% if (user) { %>
       <div class="review-form-container">
@@ -54,34 +80,7 @@
           </form>
         </div>
       </div>
-      <% } %>
-    <h2>Reviews</h2>
-    <div class="all-reviews">
-      <% if (destination.reviews.length) { %>
-        <% destination.reviews.forEach(review => { %>
-          <div class="review-card">
-            <div class="review-header">
-              <a href="/destinations/<%= destination._id %>/reviews/<%= review._id %>">
-                <h3><%= review.title %> </h3>
-              </a>
-            </div>
-            <div class="rating-rec">
-              <p><u>Rating:</u> <%= review.rating %> </p>
-              <p><u>Recommend:</u> <%= review.recommend ? 'Yes' : 'No' %> </p>
-            </div>
-            <div class="del-btn">
-              <% if (review.author._id.equals(user?.profile._id)) { %>
-                <form action="/destinations/<%= destination._id %>/reviews/<%= review._id %>?_method=DELETE" method="POST">
-                  <button type="submit">Delete</button>
-                </form>
-              <% } %>
-            </div>
-          </div>
-          <% }) %>
-        <% } else { %>
-          <h3>No Reviews Yet</h3>
-        <% } %>
-    </div>
+    <% } %>
     <div>
       <a href="/destinations">
         <button class="back-btn">All Destinations</button>
