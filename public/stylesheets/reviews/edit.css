@@ -64,9 +64,9 @@ div > label {
 .form-two-fields > label {
   width: 50%;
   text-align: left;
-  display: flex;
+  /* display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: flex-start; */
 }
 
 .form-review {
@@ -75,7 +75,6 @@ div > label {
 }
 
 .form-review > div {
-  width: 10%;
   text-align: left;
 }
 
@@ -100,4 +99,11 @@ textarea {
 
 a {
   text-decoration: none;
+}
+
+@media only screen and (max-width: 762px) {
+  .two-fields-input {
+    width: 95%;
+    margin: 0;
+  }
 }
