@@ -2,23 +2,160 @@
 <%- include('../partials/nav') %>
 
 <main>
-  <div>
-    <img 
-      class="profile-avatar"
-      src="<%= profile.avatar %>" 
-      alt="<%= profile.name %>'s avatar"
-    >
-  </div>
-  <h1> <%= isSelf ? `Hello, ${profile.name}!` : `${profile.name}'s Profile` %></h1>
-  <h1>Destinations Visited</h1>
+  <h1> <%= isSelf ? 'Your Destinations' : `${profile.name}'s Destinations` %></h1>
+  <h2>Destinations Visited</h2>
   <% if (profile.destinations.length) { %>
-    <p>
+    
+    <div class="africa">
+      <% let countAf = 0 %> 
       <% profile.destinations.forEach(destination => { %>
-        <div>
-          <%= `${destination.city}, ${destination.country}` %> 
-        </div>
+        <% if (destination.continent === 'Africa') { %>
+          <% countAf+=1 %>
+        <% } %>
       <% }) %>
-      </p>
+      <% if (countAf > 0) { %>
+        <h3>Africa</h3>
+        <% profile.destinations.forEach(destination => { %>
+          <% if (destination.continent === 'Africa') { %>
+            <div>
+              <%= `${destination.city}, ${destination.country}` %> 
+            </div>
+          <% } %>
+        <% }) %>
+      <% } %>
+      <% console.log(countAf, 'COUNT AF') %>
+    </div>
+
+    <div class="antarctica">
+      <% let countAn = 0 %> 
+      <% profile.destinations.forEach(destination => { %>
+        <% if (destination.continent === 'Antarctica') { %>
+          <% countAn+=1 %>
+        <% } %>
+      <% }) %>
+      <% if (countAn > 0) { %>
+        <h3>Antarctica</h3>
+        <% profile.destinations.forEach(destination => { %>
+          <% if (destination.continent === 'Antarctica') { %>
+            <div>
+              <%= `${destination.city}, ${destination.country}` %> 
+            </div>
+          <% } %>
+        <% }) %>
+      <% } %>
+      <% console.log(countAn, 'COUNT AN') %>
+    </div>
+
+    <div class="asia">
+      <% let countAs = 0 %> 
+      <% profile.destinations.forEach(destination => { %>
+        <% if (destination.continent === 'Asia') { %>
+          <% countAs+=1 %>
+        <% } %>
+      <% }) %>
+      <% if (countAs > 0) { %>
+        <h3>Asia</h3>
+        <% profile.destinations.forEach(destination => { %>
+          <% if (destination.continent === 'Asia') { %>
+            <div>
+              <%= `${destination.city}, ${destination.country}` %> 
+            </div>
+          <% } %>
+        <% }) %>
+      <% } %>
+      <% console.log(countAs, 'COUNT AS') %>  
+    </div>
+
+    <div class="australia">
+      <% let countAu = 0 %> 
+      <% profile.destinations.forEach(destination => { %>
+        <% if (destination.continent === 'Australia') { %>
+          <% countAu+=1 %>
+        <% } %>
+      <% }) %>
+      <% if (countAu > 0) { %>
+        <h3>Australia</h3>
+        <% profile.destinations.forEach(destination => { %>
+          <% if (destination.continent === 'Australia') { %>
+            <div>
+              <%= `${destination.city}, ${destination.country}` %> 
+            </div>
+          <% } %>
+        <% }) %>
+      <% } %>
+      <% console.log(countAu, 'COUNT AU') %>  
+    </div>
+
+    <div class="europe">
+      <% let countEu = 0 %> 
+      <% profile.destinations.forEach(destination => { %>
+        <% if (destination.continent === 'Europe') { %>
+          <% countEu+=1 %>
+        <% } %>
+      <% }) %>
+      <% if (countEu > 0) { %>
+        <h3>Europe</h3>
+        <% profile.destinations.forEach(destination => { %>
+          <% if (destination.continent === 'Europe') { %>
+            <div>
+              <%= `${destination.city}, ${destination.country}` %> 
+            </div>
+          <% } %>
+        <% }) %>
+      <% } %>
+      <% console.log(countEu, 'COUNT EU') %>  
+    </div>
+
+    <div class="north-america">
+      <% let countNA = 0 %> 
+      <% profile.destinations.forEach(destination => { %>
+        <% if (destination.continent === 'North America') { %>
+          <% countNA+=1 %>
+        <% } %>
+      <% }) %>
+      <% if (countNA > 0) { %>
+        <h3>North America</h3>
+        <% profile.destinations.forEach(destination => { %>
+          <% if (destination.continent === 'North America') { %>
+            <div>
+              <%= `${destination.city}, ${destination.country}` %> 
+            </div>
+          <% } %>
+        <% }) %>
+      <% } %>
+      <% console.log(countNA, 'COUNT NA') %>  
+    </div>
+
+    <div class="south-america">
+      <% let countSA = 0 %> 
+      <% profile.destinations.forEach(destination => { %>
+        <% if (destination.continent === 'South America') { %>
+          <% countSA+=1 %>
+        <% } %>
+      <% }) %>
+      <% if (countSA > 0) { %>
+        <h3>South America</h3>
+        <% profile.destinations.forEach(destination => { %>
+          <% if (destination.continent === 'South America') { %>
+            <div>
+              <%= `${destination.city}, ${destination.country}` %> 
+            </div>
+          <% } %>
+        <% }) %>
+      <% } %>
+      <% console.log(countSA, 'COUNT SA') %>  
+    </div>
+
+    
+    <!-- <p>
+      <%# profile.destinations.forEach(destination => { %>
+        <div>
+          <%#= `${destination.city}, ${destination.country}` %> 
+        </div>
+      <%# }) %>
+    </p> -->
+
+    
   <% } else { %>
     <p><%= isSelf ? 'You have not saved any visited destinations' : `${profile.name} has not saved any visited destinations` %> </p>
   <% } %>
@@ -38,7 +175,7 @@
       </a>
     </label>
   <% } %>
-  <h1>Bucket List Destinations</h1>
+  <h2>Bucket List Destinations</h2>
   <% if (profile.bucketListDestinations.length) { %>
     <% profile.bucketListDestinations.forEach(destination => { %>
       <p>
