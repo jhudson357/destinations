@@ -19,6 +19,10 @@ h3 {
   margin: 20px 0 10px;
 }
 
+h4 {
+  margin: 15px 0 0;
+}
+
 a {
   text-decoration: none;
   color: #080808;
@@ -26,6 +30,15 @@ a {
 
 a:hover {
   color: #1B8364;
+}
+
+input,
+textarea {
+  margin-left: 25px;
+}
+
+label {
+  padding: 15px;
 }
 
 div {
@@ -61,9 +74,17 @@ section > div {
   box-shadow: 0px 5px .6em rgb(211, 211, 211, .5);
 }
 
-.visited-dest-btn,
+.visited-dest-btn {
+  margin-bottom: 15px;
+}
+
 .new-dest-btn {
-  margin-top: 25px;
+  margin-top: 20px;
+}
+
+.new-dest-container {
+  display: flex;
+  flex-direction: column;
 }
 
 .new-dest-btn {
@@ -74,4 +95,71 @@ section > div {
 
 .new-dest-btn:hover {
   border: 2px solid #080808
+}
+
+.bucket-list-cards-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.bucket-list-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid #080808;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 0 15px 20px;
+  text-align: center;
+  width: 46%;
+  box-shadow: 0px 5px .6em rgb(211, 211, 211, .5);
+}
+
+.bucket-list-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid #080808;
+  border-radius: 5px;
+  margin: 10px;
+  text-align: center;
+  width: 94%;
+  box-shadow: 0px 5px .6em rgb(211, 211, 211, .5);
+}
+
+form {
+  width: 85%;
+}
+
+.form-content {
+  width: 100%;
+}
+
+.location-year {
+  display: flex;
+}
+
+.location-year > label {
+  width: 50%;
+}
+
+.bucket-list-info {
+  text-align: left;
+  display: flex;
+}
+
+.bucket-list-info > div {
+  text-align: left;
+}
+
+.bucket-list-info > textarea {
+  width: 100%;
+}
+
+.bucket-list-btn {
+  margin: 15px 0 30px;
 }

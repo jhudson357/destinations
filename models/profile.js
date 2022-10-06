@@ -3,12 +3,19 @@ import mongoose from 'mongoose'
 const Schema = mongoose.Schema
 
 const bucketListSchema = new Schema({
-  location: String,
-  info: String,
+  location: {
+    type: String,
+    required: true,
+  },
+  info: {
+    type: String,
+    required: true,
+  },
   year: {
     type: Number,
     min: 2022,
-    max: 2100
+    max: 2100,
+    required: true,
   },
 })
 

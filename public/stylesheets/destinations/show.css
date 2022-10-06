@@ -74,7 +74,6 @@ div > label {
 }
 
 .form-review > div {
-  width: 10%;
   text-align: left;
 }
 
@@ -162,8 +161,3 @@ a > h3:hover {
   text-align: center;
   margin-bottom: 0;
 }
-
-/* .rating-rec > label {
-  width: 50%;
-  text-align: left;
-} */

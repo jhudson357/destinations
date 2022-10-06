@@ -5,6 +5,17 @@
 <section>
   <div>
     <h1> <span style="color: #1B8364"><%= isSelf ? 'Your ' : `${profile.name}'s ` %></span> Destinations</h1>
+    <% if (isSelf) { %>
+      <form action="/profiles/<%= profile._id %>/destinations" method="POST">
+        <select name="destinationId">
+          <% destinations.forEach(destination => { %>
+            <option value="<%= destination._id %>"><%= `${destination.city}, ${destination.country}` %></option>
+          <% }) %>
+        </select>
+        <button class="visited-dest-btn" type="submit">Add Visited Destination</button>
+      </form>
+    <% } %>
+
     <% if (profile.destinations.length) { %>
       
     <div class="visited-container">
@@ -172,7 +183,6 @@
 
     </div>
       
-  
       
       <!-- <p>
         <%# profile.destinations.forEach(destination => { %>
@@ -182,65 +192,69 @@
         <%# }) %>
       </p> -->
   
-  
     <% } else { %>
       <p><%= isSelf ? 'You have not saved any visited destinations' : `${profile.name} has not saved any visited destinations` %> </p>
     <% } %>
     <% if (isSelf) { %>
-      <form action="/profiles/<%= profile._id %>/destinations" method="POST">
-        <select name="destinationId">
-          <% destinations.forEach(destination => { %>
-            <option value="<%= destination._id %>"><%= `${destination.city}, ${destination.country}` %></option>
-          <% }) %>
-        </select>
-        <button class="visited-dest-btn" type="submit">Add Visited Destination</button>
-      </form>
-      <label>
-        Not seeing a destination that you've visited? Add it to the list!
+      <label class="new-dest-container">
+        <h4>Not seeing a destination that you've visited? Add it to the list!</h4>
         <a href="/destinations/new">
           <button class="new-dest-btn">Add New Destination</button>
         </a>
       </label>
     <% } %>
-    <h2>Bucket List Destinations</h2>
-    <% if (profile.bucketListDestinations.length) { %>
-      <% profile.bucketListDestinations.forEach(destination => { %>
-        <p>
-          Location: <%= destination.location %>
-          Information: <%= destination.info %>
-          Year: <%= destination.year %> 
-          <% if (isSelf) { %>
-            <form
-              action="/profiles/bucket-list-destinations/<%= destination._id %>?_method=DELETE"
-              method="POST"
-              style="display: inline-block"
-            >
-              <button type="submit">Delete</button>
-            </form>
-          <% } %>
-        </p>
-      <% }) %>
-    <% } else { %>
-      <p><%= isSelf ? 'You have not saved any bucket list destinations' : `${profile.name} has not saved any bucket list destinations` %> </p>
-    <% } %>
-    <% if (isSelf) { %>
-      <form action="/profiles/<%= profile._id %>/bucket-list-destinations" method="POST">
-        <label>
-          Location: 
-          <input type="text" name="location" autocomplete="off">
-        </label>
-        <label>
-          Information: 
-          <textarea name="info"></textarea>
-        </label>
-        <label>
-          What year would you like to travel here? 
-          <input type="number" name="year" autocomplete="off">
-        </label>
-        <button type="submit">Add Bucket List Destination</button>
-      </form>
-    <% } %>
-    </div>
+    <h1><span style="color: #1B8364">Bucket List</span> Destinations</h1>
+    <div class="bucket-list-cards-container">
+      <% if (profile.bucketListDestinations.length) { %>
+        <% profile.bucketListDestinations.forEach(destination => { %>
+          <div class="bucket-list-card">
+            <h3><span style="color: #1B8364"><%= destination.location %></span> <i>in <%= destination.year %> </i></h3>
+            <p><%= destination.info %></p>
+            <% if (isSelf) { %>
+              <form
+                action="/profiles/bucket-list-destinations/<%= destination._id %>?_method=DELETE"
+                method="POST"
+                style="display: inline-block"
+              >
+                <button type="submit">Delete</button>
+              </form>
+            <% } %>
+          </div>
+        <% }) %>
+    </div>    
+      <% } else { %>
+        <p><%= isSelf ? 'You have not saved any bucket list destinations' : `${profile.name} has not saved any bucket list destinations` %> </p>
+      <% } %>
+      <% if (isSelf) { %>
+        <div class="bucket-list-form">
+          <h2>Add a Bucket List Destination</h2>
+          <form action="/profiles/<%= profile._id %>/bucket-list-destinations" method="POST">
+            <div class="form-content">
+              <div class="location-year">
+                <label>
+                  Location: 
+                  <input type="text" name="location" autocomplete="off" placeholder="required">
+                </label>
+                <label>
+                  Year: 
+                  <input type="number" name="year" autocomplete="off" placeholder="required">
+                </label>
+              </div>
+              <div>
+                <label class="bucket-list-info">
+                  <div>
+                    Notes: 
+                  </div>
+                  <textarea name="info" placeholder="required"></textarea>
+                </label>
+              </div>
+              <button class="bucket-list-btn" type="submit">Add Bucket List Destination</button>
+            </div>
+          </form>
+        </div>
+      <% } %>
+    
+  </div>
 </section>
 
 <%- include('../partials/footer') %>
