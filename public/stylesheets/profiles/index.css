@@ -11,6 +11,11 @@ h2:hover {
   color: #4967FD;
 }
 
+h3 {
+  text-align: center;
+  color: #4967FD;
+}
+
 section {
   display: flex;
   justify-content: center;

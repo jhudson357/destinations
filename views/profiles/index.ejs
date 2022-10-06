@@ -5,22 +5,26 @@
 <section>
   <div>
     <h1>See Where Others Have Visited</h1>
-    <div class="card-container">
-      <% profiles.forEach(profile => { %>
-        <div class="card">
-          <a class=" card-content text-decoration-none" href="/profiles/<%= profile._id %>">
-            <img 
-              class="profile-pic"
-              src="<%= profile.avatar %>" 
-              alt="<%= profile.name %>'s avatar"
-            >
-            <div class="card-body">
-              <h2 class="card-title"><%= profile.name %></h2>
-            </div>
-          </a>
-        </div>
-      <% }) %>
-    </div>
+    <% if (user) { %>
+      <div class="card-container">
+        <% profiles.forEach(profile => { %>
+          <div class="card">
+            <a class=" card-content text-decoration-none" href="/profiles/<%= profile._id %>">
+              <img 
+                class="profile-pic"
+                src="<%= profile.avatar %>" 
+                alt="<%= profile.name %>'s avatar"
+              >
+              <div class="card-body">
+                <h2 class="card-title"><%= profile.name %></h2>
+              </div>
+            </a>
+          </div>
+        <% }) %>
+      </div>
+    <% } else { %>
+      <h3>Please log in to view profiles</h3>
+    <% } %> 
   </div>
 </section>
 
