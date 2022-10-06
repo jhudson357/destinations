@@ -41,7 +41,6 @@ function create(req, res) {
 }
 
 function show(req, res) {
-  console.log('show function running')
   Destination.findById(req.params.id)
   .then(destination => {
     res.render('destinations/show', {
@@ -56,14 +55,6 @@ function show(req, res) {
 }
 
 function createReview(req, res) {
-  console.log(req.params.id, 'destinationID')
-  console.log(req.body, 'req.body')
-  console.log(req.body.rating, 'req.body.rating')
-  console.log(req.user, 'req.user')
-
-  console.log(req.user.profile.name, 'req.user.profile.name')
-  //req.body.author = req.user.profile.name     // THIS WONT WORK - NEED TO REFERENCE USER ID AND THEN POPULATE THE NAME
-
   req.body.author = req.user.profile._id
   req.body.recommend = !!req.body.recommend   // checkbox massaging
   Destination.findById(req.params.id)
@@ -85,7 +76,6 @@ function createReview(req, res) {
 }
 
 function deleteReview(req, res){
-  console.log('deleteReview function working')
   Destination.findById(req.params.destinationId)
   .then(destination => {
     destination.reviews.remove({_id: req.params.reviewId})
@@ -105,11 +95,6 @@ function deleteReview(req, res){
 }
 
 function readReview(req, res) {
-  // .populate('reviews')
-  console.log('read review function is running')
-  console.log(req.params.destinationId, 'req.params.destinationId')
-  console.log(req.params.reviewId, 'req.params.reviewId')
-  console.log(req.params, 'req.params')
   Destination.findById(req.params.destinationId)
   .populate({
     path: 'reviews',
@@ -119,7 +104,6 @@ function readReview(req, res) {
   })
   .then(destination => {
     const review = destination.reviews.id(req.params.reviewId)
-    console.log(review, 'REVIEW')
     res.render('reviews/show', {
       title: `Review - ${destination.city}`,
       destination, 
@@ -133,7 +117,6 @@ function readReview(req, res) {
 }
 
 function editReview(req, res) {
-  console.log('editReview')
   Destination.findById(req.params.destinationId)
   .populate({
     path: 'reviews',
@@ -143,7 +126,6 @@ function editReview(req, res) {
   })
   .then(destination => {
     const review = destination.reviews.id(req.params.reviewId)
-    // console.log(review, 'REVIEW')
     res.render('reviews/edit', {
       title: 'Edit Review',
       destination,
@@ -157,8 +139,6 @@ function editReview(req, res) {
 }
 
 function updateReview(req, res) {
-  // console.log('updateReview function running')
-  console.log(req.body, 'req.body - UPDATE REVIEW')
   // delete blank inputs
   for (let key in req.body) {
     if(req.body[key] === "") delete req.body[key]
@@ -169,7 +149,6 @@ function updateReview(req, res) {
     req.body.recommend = !!req.body.recommend   // checkbox handling
     // find and set subdocument (review)
     const review = destination.reviews.id(req.params.reviewId)
-    console.log(review, 'REVIEW')
     if(review.author._id.equals(req.user.profile._id)) {
       // the person making the req owns the review
       review.set(req.body)

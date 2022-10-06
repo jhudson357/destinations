@@ -16,7 +16,6 @@ function index(req, res) {
 }
 
 function show(req, res) {
-  console.log('show function - profiles')
   Profile.findById(req.params.id)
   .populate('destinations')
   .then(profile => {
@@ -38,7 +37,6 @@ function show(req, res) {
 }
 
 function createBucketListDestination(req, res) {
-  console.log('createBucketListdestination')
   Profile.findById(req.params.id)
   .then(profile => {
     profile.bucketListDestinations.push(req.body)
@@ -58,7 +56,6 @@ function createBucketListDestination(req, res) {
 }
 
 function deleteBucketListDestination(req, res) {
-  console.log('deleteBucketListDestination')
   Profile.findById(req.user.profile._id)
   .then(profile => {
     profile.bucketListDestinations.remove({_id: req.params.id})
@@ -74,7 +71,6 @@ function deleteBucketListDestination(req, res) {
 }
 
 function addDestination(req, res) {
-  console.log('addDestination function running')
   Profile.findById(req.params.id)
   .then(profile => {
     profile.destinations.push(req.body.destinationId)
