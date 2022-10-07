@@ -3,7 +3,6 @@ Destinations stores a list of destinations that you have visited and a list of t
 - [Click here to launch the app](https://destinations.fly.dev/)
 
 # Getting Started
-- [Click here to launch the app](https://destinations.fly.dev/)
 - Log in with Google
 - Add your visited destinations and bucket list destinations to your profile
 - Leave reviews for any destination
@@ -31,7 +30,8 @@ Destinations stores a list of destinations that you have visited and a list of t
 - As a user, I should be able to connect with friends and share reviews and destinations.
 - As a user, I should be able to upload images within my reviews.
 - As a user, I should be able to upvote reviews.
-- App should be mobile-friendly
+- Additional CRUD features throughout the app.
+- Improved mobile functionality.
 
 # Connect with Me
 - James Hudson - james.hudson0357@gmail.com
