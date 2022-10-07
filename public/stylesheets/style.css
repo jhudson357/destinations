@@ -2,12 +2,9 @@ html {
   box-sizing: border-box
 }
 
-/* The Universal Selector */
 *, /* All elements*/
 *::before, /* All ::before pseudo-elements */
 *::after { /* All ::after pseudo-elements */
-  /* height & width will now include border & padding by default
-     but can be over-ridden as needed */
   box-sizing: inherit;
   font-family: 'Poppins', sans-serif;
 }
@@ -96,7 +93,7 @@ nav > a {
 }
 
 nav > img {
-  height: 80%;
+  width: 200px;
   object-fit: contain;
   margin-right: auto;
 }
@@ -130,13 +127,9 @@ textarea:placeholder-shown {
   font-style: italic;
 }
 
-
-/* EVERYTHING BELOW HERE IS NEW */
-
 @media only screen and (max-width: 762px) {
-  
   nav > img {
-    height: 0%;
+    width: 0px;
     object-fit: contain;
     margin-right: auto;
   }

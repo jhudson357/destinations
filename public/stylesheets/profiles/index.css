@@ -59,7 +59,7 @@ div > h1 {
 .profile-pic {
   border-radius: 10px;
   height: 96px;
-  margin-right: 25px;    /* NEW NEW NEW */
+  margin-right: 25px;
 }
 
 .card-body {
@@ -73,7 +73,6 @@ div > h1 {
   width: 100%
 }
 
-/* EVEYRTHIGN BELOW HERE IS NEW */
 .card-title {
   word-break: break-word;
   hyphens: auto;
